@@ -11,7 +11,6 @@
 *.ctxt
 *.ear
 *.iml
-*.jar
 *.log
 *.nar
 *.rar
@@ -21,7 +20,6 @@
 .DS_Store
 .cxx
 .externalNativeBuild
-.gradle
 .kotlin/
 .mtj.tmp/
 /.idea/assetWizardSettings.xml
