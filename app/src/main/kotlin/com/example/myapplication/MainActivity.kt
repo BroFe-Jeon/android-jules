@@ -13,9 +13,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.myapplication.presentation.main.MainScreenEvent
-import com.example.myapplication.presentation.main.MainScreenEffect
-import com.example.myapplication.presentation.main.MainViewModel
+import com.example.feature_welcome.presentation.MainScreenEvent // Updated import
+import com.example.feature_welcome.presentation.MainScreenEffect // Updated import
+import com.example.feature_welcome.presentation.MainViewModel // Updated import
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

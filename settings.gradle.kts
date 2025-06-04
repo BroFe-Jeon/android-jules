@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MyApplication"
 include(":app")
+include(":core")
+include(":feature_welcome")

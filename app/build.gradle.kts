@@ -45,15 +45,15 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
-    // Room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
+    // Room - Moved to :core module
+    // implementation(libs.androidx.room.runtime)
+    // implementation(libs.androidx.room.ktx)
+    // ksp(libs.androidx.room.compiler)
 
-    // Moshi
-    implementation(libs.squareup.moshi)
-    implementation(libs.squareup.moshi.kotlin)
-    ksp(libs.squareup.moshi.kotlin.codegen)
+    // Moshi - Moved to :core module (used by NetworkModule)
+    // implementation(libs.squareup.moshi)
+    // implementation(libs.squareup.moshi.kotlin)
+    // ksp(libs.squareup.moshi.kotlin.codegen)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -75,6 +75,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
+    implementation(project(":core"))
+    implementation(project(":feature_welcome"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
