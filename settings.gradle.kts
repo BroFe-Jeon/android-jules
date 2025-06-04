@@ -13,6 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "MyApplication"
-include ':app'
-
-enableFeaturePreview("VERSION_CATALOGS")
+include(":app")
