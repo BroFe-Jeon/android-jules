@@ -44,6 +44,7 @@ android {
 dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
 
     // Room
     implementation(libs.androidx.room.runtime)
@@ -55,6 +56,7 @@ dependencies {
     implementation(libs.squareup.moshi.kotlin)
     ksp(libs.squareup.moshi.kotlin.codegen)
 
+    implementation(libs.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
