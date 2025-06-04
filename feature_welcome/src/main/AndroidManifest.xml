@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.feature_welcome">
+    <!-- If this feature module has activities, declare them here -->
+    <!-- For example:
+    <application>
+        <activity android:name=".WelcomeActivity" />
+    </application>
+    -->
+</manifest>
