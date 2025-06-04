@@ -1,26 +1,40 @@
 [versions]
 # Plugins
-androidGradlePlugin = "7.3.0"
-kotlin = "1.7.10"
-hilt = "2.44"
-ksp = "1.7.10-1.0.6" # KSP version often tied to Kotlin version
+androidGradlePlugin = "8.4.1"
+kotlin = "1.9.22"
+hilt = "2.50"
+ksp = "1.9.22-1.0.17" # KSP version often tied to Kotlin version
+
+# SDK
+sdk-compile = "35"
+sdk-min = "21"
+sdk-target = "35"
 
 # Libraries
-coreKtx = "1.9.0" # Updated from 1.7.0
-appcompat = "1.5.1"
-material = "1.7.0"
+coreKtx = "1.12.0"
+appcompat = "1.6.1"
+material = "1.11.0" # XML Material Components
 constraintlayout = "2.1.4"
+
 # Compose
-composeCompiler = "1.3.1" # Matches Kotlin 1.7.10 compatibility
-composeBom = "2023.01.00" # Bill of Materials for Compose
+composeCompiler = "1.5.8"
+composeBom = "2024.02.00"
+
 # ViewModel & LiveData (Lifecycle)
-lifecycle = "2.5.1"
+lifecycle = "2.7.0"
 # Coroutines
-coroutines = "1.6.4"
+coroutines = "1.7.3"
+
+# Room
+room = "2.6.1"
+
+# Moshi
+moshi = "1.15.1"
+
 # Testing
 junit = "4.13.2"
-androidxTestExtJunit = "1.1.4"
-espressoCore = "3.5.0"
+androidxTestExtJunit = "1.1.5"
+espressoCore = "3.5.1"
 
 [libraries]
 # AndroidX
@@ -52,6 +66,16 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 androidx-compose-material = { group = "androidx.compose.material", name = "material" } # Compose Material Design
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" } # Optional: Material 3
+
+# Room
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+
+# Moshi
+squareup-moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+squareup-moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+squareup-moshi-kotlin-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
 
 # Testing
 junit = { group = "junit", name = "junit", version.ref = "junit" }
