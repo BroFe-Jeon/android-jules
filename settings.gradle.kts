@@ -13,4 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "MyApplication"
+include(":app-legacy")
+include(":core")
+include(":feature")
 include(":app")

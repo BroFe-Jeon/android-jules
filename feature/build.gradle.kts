@@ -1,22 +1,19 @@
 plugins {
-    alias(libs.plugins.android.application) // Application plugin
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.gradle)
 }
 
 android {
-    namespace = "com.example.app" // Original new namespace
+    namespace = "com.example.myapplication.feature" // Updated namespace
     compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
-        applicationId = "com.example.app" // Ensure this is unique
         minSdk = libs.versions.sdk.min.get().toInt()
-        targetSdk = libs.versions.sdk.target.get().toInt() // Apps have targetSdk
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // targetSdk = libs.versions.sdk.target.get().toInt()
+        consumerProguardFiles("consumer-rules.pro")
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // For UI tests
     }
 
     buildTypes {
@@ -45,32 +42,33 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":feature"))
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat) // For base themes, resources
-    // implementation(libs.material) // XML Material, remove if not used
+    implementation(libs.androidx.appcompat) // For theme compatibility if needed
 
-    // Hilt (App module needs these for Application class and Activity injection)
+    // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
 
-    // Compose (some might be transitive from :feature, but good to be explicit for app's own UI if any)
+    // Compose
     implementation(libs.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material)
-    // implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material) // Using Material 2 as per app-legacy
+    // implementation(libs.androidx.compose.material3) // If M3 is desired
 
-    // Lifecycle (for App class or specific app-level lifecycle observers)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    // Lifecycle & ViewModel
+    implementation(libs.androidx.lifecycle.runtime.ktx) // for collectAsStateWithLifecycle
+    implementation(libs.androidx.lifecycle.viewmodel.ktx) // for viewModel delegates
+    implementation(libs.androidx.lifecycle.viewmodel.compose) // for viewModel<>() in Compose
 
-    // Coroutines (if app module itself launches coroutines)
+    // Coroutines (already in core, but good to have explicitly if feature uses them heavily)
     implementation(libs.kotlinx.coroutines.android)
 
-
+    // Test dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.espresso.core)

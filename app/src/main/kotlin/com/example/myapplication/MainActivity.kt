@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.app
 
 import android.os.Bundle
 import android.widget.Toast
@@ -13,10 +13,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.app.ui.theme.MyApplicationTheme // Adjusted for potential package change in Theme
+import com.example.myapplication.presentation.main.MainViewModel
 import com.example.myapplication.presentation.main.MainScreenEvent
 import com.example.myapplication.presentation.main.MainScreenEffect
-import com.example.myapplication.presentation.main.MainViewModel
-import com.example.myapplication.ui.theme.MyApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
